@@ -1,0 +1,42 @@
+<!-- branch_list.html -->
+
+<!DOCTYPE html>
+ {% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Branch List</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Branch List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Branch No</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Postcode</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for branch in branches %}
+            <tr>
+                <td>{{ branch.branch_no }}</td>
+                <td>{{ branch.street }}</td>
+                <td>{{ branch.city }}</td>
+                <td>{{ branch.postcode }}</td>
+                <td>
+                    <a href="{% url 'branch_edit' branch.branch_no %}">Edit</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'branch_new' %}">Create New Branch</a>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

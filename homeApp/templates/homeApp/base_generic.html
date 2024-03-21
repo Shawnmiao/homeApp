@@ -1,0 +1,41 @@
+<!-- base_generic.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django Project{% endblock %}</title>
+    <!-- Add your stylesheet link here -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <!-- Site header content here -->
+        <h1>Welcome to My Django Project</h1>
+    </header>
+
+    <nav>
+        <!-- Navigation links here -->
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'branch_list' %}">Branch List</a></li>
+            <!-- Add other navigation links as needed -->
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}
+        <!-- Main page content will be inserted here by other templates -->
+        {% endblock content %}
+    </main>
+
+    <footer>
+        <!-- Footer content here -->
+        <p>&copy; 2024 My Django Project</p>
+    </footer>
+
+    <!-- Add your scripts here -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

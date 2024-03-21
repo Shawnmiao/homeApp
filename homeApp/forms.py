@@ -1,5 +1,5 @@
 from django import forms
-from .models import Staff
+from .models import Staff, Branch
 
 class StaffHireForm(forms.ModelForm):
     class Meta:
@@ -18,4 +18,15 @@ class StaffHireForm(forms.ModelForm):
             'branchno':'branch No',
             'DOB':'dob',
 
+        }
+
+class BranchForm(forms.ModelForm):
+    class Meta:
+        model = Branch
+        fields = ['branch_no', 'street', 'city', 'postcode']  # List the fields you want to include in your form
+        widgets = {
+            'branch_no': forms.TextInput(attrs={'class': 'form-control'}),
+            'street': forms.TextInput(attrs={'class': 'form-control'}),
+            'city': forms.TextInput(attrs={'class': 'form-control'}),
+            'postcode': forms.TextInput(attrs={'class': 'form-control'}),
         }

@@ -80,6 +80,16 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.oracle',
+#         'NAME': 'group_project',
+#         'USER': 'COMP214_W24_ers_21',
+#         'PASSWORD': 'password',
+#         'HOST': '199.212.26.208',
+#         'PORT': '1521',
+#     }
+# }
 
 
 # Password validation

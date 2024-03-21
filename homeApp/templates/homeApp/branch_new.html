@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Branch Form</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<!--    <script src="{% static 'js/script.js' %}" defer></script>-->
+</head>
+<body>
+    <form id="branchForm" method="POST">
+         {% csrf_token %}
+         {{ form }}
+<!--        <label for="fname">First Name:</label>-->
+<!--        <input type="text" id="fname" name="fname" required><br>-->
+
+<!--        <label for="lname">Last Name:</label>-->
+<!--        <input type="text" id="lname" name="lname" required><br>-->
+
+<!--        <label for="position">Position:</label>-->
+<!--        <input type="text" id="position" name="position" required><br>-->
+
+<!--        <label for="branchno">Branch No:</label>-->
+<!--        <input type="text" id="branchno" name="branchno" required><br>-->
+
+<!--        <label for="dob">DOB:</label>-->
+<!--        <input type="date" id="dob" name="dob" required><br>-->
+
+<!--        <label for="salary">Salary:</label>-->
+<!--        <input type="number" id="salary" name="salary" required><br>-->
+
+<!--        <label for="telephone">Telephone:</label>-->
+<!--        <input type="tel" id="telephone" name="telephone"><br>-->
+
+<!--        <label for="mobile">Mobile:</label>-->
+<!--        <input type="tel" id="mobile" name="mobile"><br>-->
+
+<!--        <label for="email">Email:</label>-->
+<!--        <input type="email" id="email" name="email" required><br>-->
+            <input type="submit" value="Submit" />
+<!--        <button type="submit" id="hireButton">Hire</button>-->
+<!--        <button type="button" id="cancelButton">Cancel</button>-->
+    </form>
+
+    <div id="result"></div>
+
+</body>
+</html>

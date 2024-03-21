@@ -16,5 +16,12 @@ class Staff(models.Model):
     mobile = models.CharField(max_length=15, blank=True, null=True)
     email = models.EmailField()
 
+class Branch(models.Model):
+    objects = models.Manager()
+    branch_no = models.CharField(max_length=10, primary_key=True)
+    street = models.CharField(max_length=100)
+    city = models.CharField(max_length=50)
+    postcode = models.CharField(max_length=10)
+
     def __str__(self):
         return f"{self.fname} {self.lname} - {self.position}"
