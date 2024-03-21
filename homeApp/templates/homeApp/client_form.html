@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if client %}Edit Client{% else %}New Client{% endif %}</title>
+    <!-- Add your CSS links here -->
+</head>
+<body>
+    <h2>{% if client %}Edit Client{% else %}New Client{% endif %}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

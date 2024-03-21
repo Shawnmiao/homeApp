@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client List</title>
+    <!-- Add your CSS links here -->
+</head>
+<body>
+    <h2>Client List</h2>
+    <table>
+        <tr>
+            <th>Client No</th>
+            <th>Name</th>
+            <!-- Other headers -->
+            <th>Actions</th>
+        </tr>
+        {% for client in clients %}
+        <tr>
+            <td>{{ client.client_no }}</td>
+            <td>{{ client.first_name }} {{ client.last_name }}</td>
+            <!-- Other data -->
+            <td>
+                <a href="{% url 'update_client' client.client_no %}">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'new_client' %}">Add New Client</a>
+</body>
+</html>

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Staff, Branch
+from .models import Staff, Branch,Client
 
 class StaffHireForm(forms.ModelForm):
     class Meta:
@@ -30,3 +30,13 @@ class BranchForm(forms.ModelForm):
             'city': forms.TextInput(attrs={'class': 'form-control'}),
             'postcode': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
+class NewClientForm(forms.ModelForm):
+    class Meta:
+        model = Client
+        fields = ['client_no', 'first_name', 'last_name', 'tel_no', 'street', 'city', 'email', 'pref_type', 'max_rent']
+
+class UpdateClientForm(forms.ModelForm):
+    class Meta:
+        model = Client
+        fields = ['first_name', 'last_name', 'tel_no', 'street', 'city', 'email', 'pref_type', 'max_rent']

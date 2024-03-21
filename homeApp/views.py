@@ -1,10 +1,10 @@
 
 from django.shortcuts import render, redirect
-from .forms import StaffHireForm,BranchForm
+from .forms import StaffHireForm,BranchForm,NewClientForm,UpdateClientForm
 from django.http import HttpResponse
-from .models import Staff,Branch
+
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Branch
+from .models import Branch,Client,Staff
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 
@@ -73,3 +73,27 @@ def branch_new(request):
 
     return render(request, 'homeApp/branch_new.html', {'form': form})
 
+def client_list(request):
+    clients = Client.objects.all()
+    return render(request, 'homeApp/client_list.html', {'clients': clients})
+
+def new_client(request):
+    if request.method == "POST":
+        form = NewClientForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('client_list')
+    else:
+        form = NewClientForm()
+    return render(request, 'homeApp/client_form.html', {'form': form})
+
+def update_client(request, pk):
+    client = Client.objects.get(client_no=pk)
+    if request.method == "POST":
+        form = UpdateClientForm(request.POST, instance=client)
+        if form.is_valid():
+            form.save()
+            return redirect('client_list')
+    else:
+        form = UpdateClientForm(instance=client)
+    return render(request, 'homeApp/client_form.html', {'form': form})
